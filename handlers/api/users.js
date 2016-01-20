@@ -1,6 +1,11 @@
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+
 var users = {
   list: function(req, res, next) {
-    res.send('"Dedicated users handler"');
+    User.find({}, function(err, users) {
+      res.send(users);
+    });
   }
 };
 

@@ -4,6 +4,17 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var config = require('./config');
+
+// Connect to database
+var db = mongoose.connect(config.db.uri, config.db.options);
+
+// Bootstrap models
+var modelsPath = path.join(__dirname, 'models');
+fs.readdirSync(modelsPath).forEach(function (file) {
+  require(modelsPath + '/' + file);
+});
 
 var routes = require('./routes/index');
 var api = require('./routes/api');
