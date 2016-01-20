@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var usersHandler = require('../handlers/api/users.js');
+var users = require('../handlers/api/users');
 
 /* GET users listing. */
-router.get('/', usersHandler);
+router.get('/', users.list);
 
 module.exports = router;
