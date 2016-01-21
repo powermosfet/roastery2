@@ -6,6 +6,12 @@ var users = {
     User.find({}, function(err, users) {
       res.send(users);
     });
+  },
+  create: function(req, res, next) {
+    var user = new User(req.body);
+    user.save(function(err, user) {
+      res.send(user);
+    });
   }
 };
 
