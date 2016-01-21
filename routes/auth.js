@@ -9,10 +9,11 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "http://roastery-toolbox.herokuapp.com/auth/google/callback"
   },
-  function(identifier, profile, done) {
+  function(accessToken, refreshToken, profile, done) {
     console.dir({
+      accessToken: accessToken,
+      refreshToken: refreshToken,
       profile: profile,
-      identifier: identifier,
     });
     User.findOrCreate({ openId: identifier }, function(err, user) {
       done(err, user);
