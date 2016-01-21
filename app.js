@@ -21,6 +21,13 @@ var routes = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
+// Force HTTPS (http://stackoverflow.com/a/7261883/3334477)
+app.all('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
