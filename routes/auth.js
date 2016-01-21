@@ -15,7 +15,10 @@ passport.use(new GoogleStrategy({
       refreshToken: refreshToken,
       profile: profile,
     });
-    User.findOrCreate({ openId: identifier }, function(err, user) {
+    User.findOrCreate({
+      authId: profile.id,
+      name: profile.displayName,
+    }, function(err, user) {
       done(err, user);
     });
   }

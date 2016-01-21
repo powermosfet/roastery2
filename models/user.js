@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate');
 
 var UserSchema = new mongoose.Schema({
   name: String,
@@ -7,6 +8,7 @@ var UserSchema = new mongoose.Schema({
   updatedAt: Date,
 });
 
+UserSchema.plugin(findOrCreate);
 UserSchema.methods.toJSON = function() {
   var obj = this.toObject();
   delete obj.__v;
