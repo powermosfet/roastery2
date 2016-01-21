@@ -10,8 +10,8 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://roastery-toolbox.herokuapp.com/auth/google/callback"
   },
   function(identifier, profile, done) {
+    console.dir(profile);
     User.findOrCreate({ openId: identifier }, function(err, user) {
-      console.dir(profile);
       done(err, user);
     });
   }
