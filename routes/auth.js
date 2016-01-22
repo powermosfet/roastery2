@@ -10,16 +10,14 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://roastery-toolbox.herokuapp.com/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
-    console.dir({
-      accessToken: accessToken,
-      refreshToken: refreshToken,
-      profile: profile,
-    });
+    console.dir(profile);
     User.findOrCreate({
       authId: profile.id,
-      name: profile.displayName,
     }, function(err, user) {
-      done(err, user);
+      user.name = profile.displayName;
+      user.save(function(err, user){
+        done(err, user);
+      });
     });
   }
 ));
