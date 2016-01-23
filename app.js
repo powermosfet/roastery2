@@ -67,13 +67,13 @@ if (app.get('env') === 'development') {
     });
   });
 } else {
-  // // Force HTTPS (http://stackoverflow.com/a/7261883/3334477)
-  // app.all('*',function(req,res,next){
-  //   if(req.headers['x-forwarded-proto']!='https')
-  //     res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
-  //   else
-  //     next(); /* Continue to other routes if we're not redirecting */
-  // });
+  // Force HTTPS (http://stackoverflow.com/a/7261883/3334477)
+  app.all('*',function(req,res,next){
+    if(req.headers['x-forwarded-proto']!='https')
+      res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
+    else
+      next(); /* Continue to other routes if we're not redirecting */
+  });
 }
 
 // production error handler
