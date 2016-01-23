@@ -68,7 +68,9 @@ if (app.get('env') === 'development') {
 } else {
   // Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
   app.use(function(req,res,next){
-    if(req.headers['x-forwarded-proto']!='https')
+    var proto = req.headers['x-forwarded-proto'];
+    console.log("Received proto: ", proto);
+    if(proto != 'https')
       res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
     else
       next(); /* Continue to other routes if we're not redirecting */
