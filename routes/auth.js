@@ -13,8 +13,8 @@ passport.deserializeUser(function(user, done) {
 });
 
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  clientID: config.auth.google.clientId,
+  clientSecret: config.auth.google.clientSecret,
   callbackURL: "http://roastery-toolbox.herokuapp.com/auth/google/callback"
 },
 function(accessToken, refreshToken, profile, done) {
@@ -34,7 +34,10 @@ function(accessToken, refreshToken, profile, done) {
 }
                                ));
 
-router.get('/google', passport.authenticate('google', { scope: "https://www.googleapis.com/auth/userinfo.profile" }));
+router.get('/google',
+  passport.authenticate('google', {
+    scope: "https://www.googleapis.com/auth/userinfo.profile"
+  }));
 router.get('/google/callback',
   passport.authenticate('google', {
     successRedirect: '/',
