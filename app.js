@@ -42,6 +42,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
+app.use(function(req,res,next){
+  var proto = req.headers['x-forwarded-proto'];
+  console.log("Received proto: ", proto);
+  if(proto != 'https')
+    res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+});
+
+app.use('/', routes);
+app.use('/api', apiRoutes);
+app.use('/auth', authRoutes);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -65,16 +79,6 @@ if (app.get('env') === 'development') {
 
 console.log("Environment: ", app.get('env'));
 
-// Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
-app.use(function(req,res,next){
-  var proto = req.headers['x-forwarded-proto'];
-  console.log("Received proto: ", proto);
-  if(proto != 'https')
-    res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
-  else
-    next(); /* Continue to other routes if we're not redirecting */
-});
-
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
@@ -84,9 +88,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-app.use('/', routes);
-app.use('/api', apiRoutes);
-app.use('/auth', authRoutes);
 
 module.exports = app;
