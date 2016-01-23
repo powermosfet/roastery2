@@ -58,7 +58,6 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-  console.log("We are in dev!");
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -67,8 +66,8 @@ if (app.get('env') === 'development') {
     });
   });
 } else {
-  // Force HTTPS (http://stackoverflow.com/a/7261883/3334477)
-  app.all('*',function(req,res,next){
+  // Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
+  app.use(function(req,res,next){
     if(req.headers['x-forwarded-proto']!='https')
       res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
     else
