@@ -65,17 +65,19 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-} else {
-  // Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
-  app.use(function(req,res,next){
-    var proto = req.headers['x-forwarded-proto'];
-    console.log("Received proto: ", proto);
-    if(proto != 'https')
-      res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
-    else
-      next(); /* Continue to other routes if we're not redirecting */
-  });
 }
+
+console.log("Environment: ", app.get('env'));
+
+// Force HTTPS (http://stackoverflow.com/questions/7185074/heroku-nodejs-http-to-https-ssl-forced-redirect)
+app.use(function(req,res,next){
+  var proto = req.headers['x-forwarded-proto'];
+  console.log("Received proto: ", proto);
+  if(proto != 'https')
+    res.redirect('https://roastery-toolbox.herokuapp.com'+req.url);
+  else
+    next(); /* Continue to other routes if we're not redirecting */
+});
 
 // production error handler
 // no stacktraces leaked to user
