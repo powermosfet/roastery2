@@ -1,4 +1,5 @@
 module.exports = {
+  appUrl: 'https://roastery-toolbox.herokuapp.com',
   db: {
     uri: process.env.MONGOLAB_URI,
     options: {},
