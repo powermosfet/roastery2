@@ -16,7 +16,7 @@ var db = mongoose.connect(config.db.uri, config.db.options);
 
 // Bootstrap models
 var modelsPath = path.join(__dirname, 'models');
-fs.readdirSync(modelsPath).forEach(function (file) {
+fs.readdirSync(modelsPath).filter(function(f){return !f.endsWith('.swp');}).forEach(function (file) {
   require(modelsPath + '/' + file);
 });
 
