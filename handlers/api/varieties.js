@@ -22,7 +22,7 @@ var varieties = {
     });
   },
   change: function(req, res, next) {
-    Variety.findByIdAndUpdate(req.params.id, req.body, function(err, variety) {
+    Variety.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, variety) {
       if(err) {
         res.send(500);
       }
