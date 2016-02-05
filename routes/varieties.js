@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var variety = require('../handlers/api/variety');
+var variety = require('../handlers/api/varieties');
 
 router.get('/',  variety.list);
 router.post('/', variety.create);
