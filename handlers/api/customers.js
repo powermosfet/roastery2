@@ -12,7 +12,23 @@ var customers = {
     customer.save(function(err, customer) {
       res.send(customer);
     });
-  }
+  },
+  detail: function(req, res, next) {
+    Customer.findById(req.params.id, function(err, customer) {
+      if(err) {
+        res.send(500);
+      }
+      res.send(customer);
+    });
+  },
+  change: function(req, res, next) {
+    Customer.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, customer) {
+      if(err) {
+        res.send(500);
+      }
+      res.send(customer);
+    });
+  },
 };
 
 module.exports = customers;
