@@ -1,9 +1,9 @@
 var express = require('express');
-var storages = express.storages();
-var varieties = require('../handlers/api/varieties');
+var router = express.Router();
+var storages = require('../handlers/api/storages');
 
 /* GET users listing. */
-storages.get('/',  varieties.list);
-storages.post('/', varieties.create);
+router.get('/',  storages.list);
+router.post('/', storages.create);
 
-module.exports = storages;
+module.exports = router;
