@@ -12,7 +12,23 @@ var varieties = {
     variety.save(function(err, variety) {
       res.send(variety);
     });
-  }
+  },
+  detail: function(req, res, next) {
+    Variety.findById(req.params.id, function(err, variety) {
+      if(err) {
+        res.status(500);
+      }
+      res.send(variety);
+    });
+  },
+  change: function(req, res, next) {
+    Variety.findByIdAndUpdate(req.params.id, req.body, function(err, variety) {
+      if(err) {
+        res.status(500);
+      }
+      res.send(variety);
+    });
+  },
 };
 
 module.exports = varieties;

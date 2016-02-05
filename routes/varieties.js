@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var customers = require('../handlers/api/customers');
+var variety = require('../handlers/api/variety');
 
-/* GET users listing. */
-router.get('/',  customers.list);
-router.post('/', customers.create);
+router.get('/',  variety.list);
+router.post('/', variety.create);
+router.get('/:id/', variety.detail);
+router.put('/:id/', variety.change);
 
 module.exports = router;
