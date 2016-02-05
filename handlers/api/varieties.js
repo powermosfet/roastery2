@@ -16,7 +16,7 @@ var varieties = {
   detail: function(req, res, next) {
     Variety.findById(req.params.id, function(err, variety) {
       if(err) {
-        res.status(500);
+        res.send(500);
       }
       res.send(variety);
     });
@@ -24,7 +24,7 @@ var varieties = {
   change: function(req, res, next) {
     Variety.findByIdAndUpdate(req.params.id, req.body, function(err, variety) {
       if(err) {
-        res.status(500);
+        res.send(500);
       }
       res.send(variety);
     });
