@@ -2,7 +2,10 @@ var mongoose = require('mongoose');
 var VarietySchema = require('./variety');
 
 var StorageSchema = new mongoose.Schema({
-  variety: VarietySchema,
+  variety: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Variety'
+  },
   amount: Number,
   createdAt: Date,  
   updatedAt: Date,

@@ -2,7 +2,10 @@ var mongoose = require('mongoose');
 var VarietySchema = require('./variety');
 
 var BatchSchema = new mongoose.Schema({
-  variety: VarietySchema,
+  variety: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Variety'
+  },
   roastlevel: String,
   program: String,
   ambientTemp: Number,
