@@ -3,7 +3,9 @@ var Storage = mongoose.model('Storage');
 
 var storages = {
   list: function(req, res, next) {
-    Storage.find({}, function(err, storages) {
+    Storage.find({})
+        .populate('variety')
+        .exec(function(err, storages) {
       res.send(storages);
     });
   },
