@@ -4,10 +4,13 @@ var Storage = mongoose.model('Storage');
 var storages = {
   list: function(req, res, next) {
     Storage.find({})
-        .populate('variety')
-        .exec(function(err, storages) {
-      res.send(storages);
-    });
+      .populate('variety')
+      .exec(function(err, storages) {
+        if(err) {
+          res.status(500).send(err);
+        }
+        res.send(storages);
+      });
   },
   create: function(req, res, next) {
     var storage = new Storage(req.body);
