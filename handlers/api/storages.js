@@ -27,7 +27,8 @@ var storages = {
     });
   },
   change: function(req, res, next) {
-    Storage.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, storage) {
+    Storage.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .exec(function(err, storage) {
       if(err) {
         res.send(500);
       }
