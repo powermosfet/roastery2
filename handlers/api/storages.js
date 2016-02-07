@@ -34,6 +34,19 @@ var storages = {
       res.send(storage);
     });
   },
+  remove: function(req, res, next) {
+    Storage.findById(req.params.id, function(err, storage) {
+      if(err) {
+        res.send(404);
+      }
+      storage.remove(function(err) {
+        if(err) {
+          res.send(500);
+        }
+        res.send(200);
+      });
+    });
+  },
 };
 
 module.exports = storages;

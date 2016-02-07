@@ -7,5 +7,6 @@ router.get('/',  storages.list);
 router.post('/', storages.create);
 router.get('/:id/', storages.detail);
 router.put('/:id/', storages.change);
+router.delete('/:id/', storages.remove);
 
 module.exports = router;
