@@ -22,7 +22,9 @@ var customers = {
     });
   },
   change: function(req, res, next) {
-    Customer.findByIdAndUpdate(req.params.id, req.body, { new: true }, function(err, customer) {
+    var changedData = req.body;
+    changedData.updatedAt = Date.now();
+    Customer.findByIdAndUpdate(req.params.id, changedData, { new: true }, function(err, customer) {
       if(err) {
         res.send(500);
       }
