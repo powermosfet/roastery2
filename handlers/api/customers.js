@@ -4,8 +4,8 @@ var Customer = mongoose.model('Customer');
 var customers = {
   list: function(req, res, next) {
     Customer.find({})
-      .populate('orders.batches.variety')
-      .exec(function(err, customers) {
+    .populate('orders.batches.variety')
+    .exec(function(err, customers) {
       res.send(customers);
     });
   },
@@ -16,7 +16,9 @@ var customers = {
     });
   },
   detail: function(req, res, next) {
-    Customer.findById(req.params.id, function(err, customer) {
+    Customer.findById(req.params.id)
+    .populate('orders.batches.variety')
+    .exec(function(err, customer) {
       if(err) {
         res.send(500);
       }
