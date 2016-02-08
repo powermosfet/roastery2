@@ -4,7 +4,6 @@ var BatchSchema = require('./batch');
 var OrderSchema = new mongoose.Schema({
   description: String,
   batches: [BatchSchema],
-  email: String,
   createdAt: Date,  
   updatedAt: Date,
 });

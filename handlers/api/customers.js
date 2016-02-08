@@ -3,7 +3,9 @@ var Customer = mongoose.model('Customer');
 
 var customers = {
   list: function(req, res, next) {
-    Customer.find({}, function(err, customers) {
+    Customer.find({})
+      .populate('orders.batches.variety')
+      .exec(function(err, customers) {
       res.send(customers);
     });
   },
