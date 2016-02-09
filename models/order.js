@@ -3,8 +3,8 @@ var BatchSchema = require('./batch');
 
 var OrderSchema = new mongoose.Schema({
   description: String,
-  delivered: Bool,
-  paid: Bool,
+  delivered: Boolean,
+  paid: Boolean,
   batches: [BatchSchema],
   createdAt: Date,  
   updatedAt: Date,
