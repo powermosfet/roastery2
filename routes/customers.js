@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var customers = require('../handlers/api/customers');
+var customers = require('../controllers/api/customers');
 
 router.get('/',  customers.list);
 router.post('/', customers.create);

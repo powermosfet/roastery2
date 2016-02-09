@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var storages = require('../handlers/api/storages');
+var storages = require('../controllers/api/storages');
 
 /* GET users listing. */
 router.get('/',  storages.list);
