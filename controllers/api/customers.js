@@ -9,6 +9,13 @@ var customers = {
       res.send(customers);
     });
   },
+  withOpenOrders: function(req, res, next) {
+    Customer.find({'orders.delivered': false})
+    .populate('orders.batches.variety')
+    .exec(function(err, customers) {
+      res.send(customers);
+    });
+  },
   create: function(req, res, next) {
     var customer = new Customer(req.body);
     customer.save(function(err, customer) {
