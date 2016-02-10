@@ -23,7 +23,7 @@ CustomerSchema.pre('save', function(next, done){
   }
   this.updatedAt = Date.now();
   if(!this.account) {
-    this.account = {};
+    this.account = new AccountSchema();
   }
   next();
 });
