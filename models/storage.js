@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var VarietySchema = require('./variety');
+var VarietySchema = require('./variety').schema;
 
 var StorageSchema = new mongoose.Schema({
   variety: {
@@ -25,5 +25,5 @@ StorageSchema.pre('save', function(next, done){
   next();
 });
 
-mongoose.model('Storage', StorageSchema);
-module.exports = StorageSchema;
+module.exports.schema = StorageSchema;
+module.exports.model = mongoose.model('Storage', StorageSchema);

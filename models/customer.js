@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
-var OrderSchema = require('./order');
-var AccountSchema = require('./account');
+var OrderSchema = require('./order').schema;
+var AccountSchema = require('./account').schema;
 
 var CustomerSchema = new mongoose.Schema({
   name: String,
@@ -28,5 +28,5 @@ CustomerSchema.pre('save', function(next, done){
   next();
 });
 
-mongoose.model('Customer', CustomerSchema);
-module.exports = CustomerSchema;
+module.exports.schema = CustomerSchema;
+module.exports.model = mongoose.model('Customer', CustomerSchema);

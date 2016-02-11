@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var VarietySchema = require('./variety');
+var VarietySchema = require('./variety').schema;
 
 var BatchSchema = new mongoose.Schema({
   variety: {
@@ -29,4 +29,5 @@ BatchSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports = BatchSchema;
+module.exports.schema = BatchSchema;
+module.exports.model = mongoose.model('Batch', BatchSchema);

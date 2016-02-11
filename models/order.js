@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var BatchSchema = require('./batch');
+var BatchSchema = require('./batch').schema;
 
 var OrderSchema = new mongoose.Schema({
   description: String,
@@ -24,4 +24,5 @@ OrderSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports = OrderSchema;
+module.exports.schema = OrderSchema;
+module.exports.model = mongoose.model('Order', OrderSchema);
