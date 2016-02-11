@@ -15,5 +15,6 @@ router.use('/users', users);
 router.use('/customers', customers);
 router.use('/varieties', varieties);
 router.use('/storages', storages);
+router.use('/transactions', transactions);
 
 module.exports = router;

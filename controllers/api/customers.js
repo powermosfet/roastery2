@@ -42,6 +42,19 @@ var customers = {
       res.send(customer);
     });
   },
+  remove: function(req, res, next) {
+    Customer.findById(req.params.id, function(err, customer) {
+      if(err) {
+        res.send(404);
+      }
+      customer.remove(function(err) {
+        if(err) {
+          res.send(500);
+        }
+        res.send(200);
+      });
+    });
+  },
 };
 
 module.exports = customers;

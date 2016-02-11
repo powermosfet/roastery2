@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var storages = require('../controllers/api/storages');
+var transactions = require('../controllers/api/transactions');
 
 /* GET users listing. */
-router.get('/',  storages.list);
-router.post('/', storages.create);
-router.get('/:id/', storages.detail);
-router.put('/:id/', storages.change);
-router.delete('/:id/', storages.remove);
+router.get('/',  transactions.list);
+router.post('/', transactions.create);
+router.get('/:id/', transactions.detail);
+router.put('/:id/', transactions.change);
+router.delete('/:id/', transactions.remove);
 
 module.exports = router;
