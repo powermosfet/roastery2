@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var OrderSchema = require('./order').schema;
 var AccountSchema = require('./account').schema;
+var Account = require('./account').model;
 
 var CustomerSchema = new mongoose.Schema({
   name: String,
@@ -23,7 +24,7 @@ CustomerSchema.pre('save', function(next, done){
   }
   this.updatedAt = Date.now();
   if(!this.account) {
-    this.account = new AccountSchema();
+    this.account = new Account();
   }
   next();
 });
