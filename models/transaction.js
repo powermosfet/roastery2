@@ -9,6 +9,7 @@ var BatchSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Account'
   },
+  amount: Number,
   transactionTime: Date,
   createdAt: Date,  
   updatedAt: Date,
