@@ -1,15 +1,15 @@
 var mongoose = require('mongoose');
 
 var BatchSchema = new mongoose.Schema({
-  variety: {
+  from: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Variety'
+    ref: 'Account'
   },
-  roastlevel: String,
-  program: String,
-  ambientTemp: Number,
-  finalTemp: Number,
-  completedAt: Date,
+  to: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Account'
+  },
+  transactionTime: Date,
   createdAt: Date,  
   updatedAt: Date,
 });
@@ -21,6 +21,9 @@ BatchSchema.methods.toJSON = function() {
 };
 
 BatchSchema.pre('save', function(next, done){
+  if(!this.transactionTime) {
+    this.transactionTime = Date.now();
+  }
   if (this.isNew) {
     this.createdAt = Date.now();
   }
