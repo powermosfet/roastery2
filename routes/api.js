@@ -4,6 +4,7 @@ var users = require('./users');
 var customers = require('./customers');
 var varieties = require('./varieties');
 var storages = require('./storages');
+var transactions = require('./transactions');
 
 // router.all('/*', function(req, res, next){
 //   console.log(req.url);
