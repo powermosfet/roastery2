@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var BatchSchema = new mongoose.Schema({
+var TransactionSchema = new mongoose.Schema({
   from: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Account'
@@ -15,13 +15,13 @@ var BatchSchema = new mongoose.Schema({
   updatedAt: Date,
 });
 
-BatchSchema.methods.toJSON = function() {
+TransactionSchema.methods.toJSON = function() {
   var obj = this.toObject();
   delete obj.__v;
   return obj;
 };
 
-BatchSchema.pre('save', function(next, done){
+TransactionSchema.pre('save', function(next, done){
   if(!this.transactionTime) {
     this.transactionTime = Date.now();
   }
@@ -32,5 +32,5 @@ BatchSchema.pre('save', function(next, done){
   next();
 });
 
-mongoose.model('Batch', BatchSchema);
-module.exports = BatchSchema;
+mongoose.model('Transaction', TransactionSchema);
+module.exports = TransactionSchema;
