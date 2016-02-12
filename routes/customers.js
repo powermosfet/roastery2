@@ -7,5 +7,6 @@ router.get('/open/',  customers.withOpenOrders);
 router.post('/', customers.create);
 router.get('/:id/', customers.detail);
 router.put('/:id/', customers.change);
+router.delete('/:id/', customers.remove);
 
 module.exports = router;
