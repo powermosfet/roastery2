@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var BatchSchema = require('./batch').schema;
+var BatchSchema = require('./batch');
 
 var OrderSchema = new mongoose.Schema({
   description: String,

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
-var OrderSchema = require('./order').schema;
-var AccountSchema = require('./account').schema;
-var Account = require('./account').model;
+var OrderSchema = require('./order');
+var AccountSchema = require('./account');
+var Account = mongoose.model('Account');
 
 var CustomerSchema = new mongoose.Schema({
   name: String,

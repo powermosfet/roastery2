@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var VarietySchema = require('./variety').schema;
+var VarietySchema = require('./variety');
 
 var StorageSchema = new mongoose.Schema({
   variety: {
