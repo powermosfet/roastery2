@@ -25,5 +25,5 @@ StorageSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports.schema = StorageSchema;
-module.exports.model = mongoose.model('Storage', StorageSchema);
+mongoose.model('Storage', StorageSchema);
+module.exports = StorageSchema;

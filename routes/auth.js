@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-var User = require('../models/user').schema;
+var User = require('../models/user');
 var config = require('../config');
 
 passport.serializeUser(function(user, done) {

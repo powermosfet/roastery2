@@ -28,5 +28,5 @@ BatchSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports.schema = BatchSchema;
-module.exports.model = mongoose.model('Batch', BatchSchema);
+mongoose.model('Batch', BatchSchema);
+module.exports = BatchSchema;

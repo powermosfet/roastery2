@@ -21,5 +21,5 @@ VarietySchema.pre('save', function(next, done){
   next();
 });
 
-module.exports.schema = VarietySchema;
-module.exports.model = mongoose.model('Variety', VarietySchema);
+mongoose.model('Variety', VarietySchema);
+module.exports = VarietySchema;

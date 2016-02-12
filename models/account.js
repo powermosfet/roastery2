@@ -19,5 +19,5 @@ AccountSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports.schema = AccountSchema;
-module.exports.model = mongoose.model('Account', AccountSchema);
+mongoose.model('Account', AccountSchema);
+module.exports = AccountSchema;

@@ -24,5 +24,5 @@ OrderSchema.pre('save', function(next, done){
   next();
 });
 
-module.exports.schema = OrderSchema;
-module.exports.model = mongoose.model('Order', OrderSchema);
+mongoose.model('Order', OrderSchema);
+module.exports = OrderSchema;
