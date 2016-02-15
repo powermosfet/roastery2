@@ -7,6 +7,11 @@ var StorageSchema = new mongoose.Schema({
     ref: 'Variety'
   },
   amount: Number,
+  originalAmount: Number,
+  cost: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Transaction'
+  },
   createdAt: Date,  
   updatedAt: Date,
 });
