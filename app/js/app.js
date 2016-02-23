@@ -1,8 +1,7 @@
 var $ = require('jquery');
-var React = require('react');
 var ReactDOM = require('react-dom');
 var injectTapEventPlugin = require('react-tap-event-plugin');
-var AppBar = require('material-ui/lib/app-bar');
+var Main = require('./main');
 
 // Needed for onTouchTap
 // Can go away when react 1.0 release
@@ -11,9 +10,6 @@ var AppBar = require('material-ui/lib/app-bar');
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <AppBar
-    title="Title"
-    iconClassNameRight="muidocs-icon-navigation-expand-more"
-  />,
+  Main(),
   $('.content')[0]
 );
