@@ -1,7 +1,7 @@
 var React = require('react');
 var AppBar = require('material-ui/lib/app-bar');
 
-module.exports = React.createComponent({
+module.exports = React.createClass({
   render: function() {
     return (
   <div>
