@@ -30,6 +30,7 @@ var CustomerList = React.createClass({
       var firstLetter = customer.name[0] || 'X';
       return (
         <ListItem
+          key={ customer._id }
           leftAvatar={<Avatar>{ firstLetter }</Avatar>}
           >
           { customer.name }
