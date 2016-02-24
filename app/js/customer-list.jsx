@@ -2,7 +2,7 @@ var $ = require('jquery');
 var React = require('react');
 var List = require('material-ui/lib/lists/list');
 var ListItem = require('material-ui/lib/lists/list-item');
-var Avatar = require('material-ui/lib/svg-icons/action/info');
+var Avatar = require('material-ui/lib/avatar');
 
 var CustomerList = React.createClass({
   loadCustomers: function() {
