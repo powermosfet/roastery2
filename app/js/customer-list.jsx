@@ -25,7 +25,7 @@ var CustomerList = React.createClass({
     // setInterval(this.loadCustomers, this.props.pollInterval);
   },
   render: function() {
-    var customerItems = this.props.data.map(function(customer) {
+    var customerItems = this.state.data.map(function(customer) {
       var firstLetter = customer.name[0] || 'X';
       return (
         <ListItem
