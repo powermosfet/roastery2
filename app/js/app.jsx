@@ -10,6 +10,8 @@ var Main = require('./main');
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <Main />,
+  (
+    <Main />
+  ),
   $('.content')[0]
 );

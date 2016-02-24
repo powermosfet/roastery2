@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   entry: [
     './app/html/app.html',
-    './app/js/app.js'
+    './app/js/app.jsx'
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
