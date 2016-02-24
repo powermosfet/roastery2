@@ -1,3 +1,4 @@
+var $ = require('jquery');
 var React = require('react');
 var List = require('material-ui/lib/lists/list');
 var ListItem = require('material-ui/lib/lists/list-item');
