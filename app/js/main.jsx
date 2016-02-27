@@ -9,7 +9,11 @@ module.exports = React.createClass({
   <div>
     <AppBar
       title="Customers"
-      iconClassNameRight="muidocs-icon-navigation-expand-more"
+      iconElementRight={
+        <div>
+          <ContentAdd />
+        </div>
+      }
     />
     <CustomerList url="/api/customers" />
   </div>
