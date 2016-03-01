@@ -2,7 +2,7 @@ var React = require('react');
 var AppBar = require('material-ui/lib/app-bar');
 var CustomerList = require('./customer-list');
 var ContentAdd = require('material-ui/lib/svg-icons/content/add');
-var FlatButton = require('material-ui/lib/flat-button');
+var IconButton = require('material-ui/lib/icon-button');
 
 module.exports = React.createClass({
   render: function() {
@@ -11,9 +11,9 @@ module.exports = React.createClass({
     <AppBar
       title="Customers"
       iconElementRight={
-        <FlatButton>
+        <IconButton>
           <ContentAdd />
-        </FlatButton>
+        </IconButton>
       }
     />
     <CustomerList url="/api/customers" />
