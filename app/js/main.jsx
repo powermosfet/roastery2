@@ -11,11 +11,9 @@ module.exports = React.createClass({
     <AppBar
       title="Customers"
       iconElementRight={
-        <div>
-          <FlatButton>
-            <ContentAdd />
-          </FlatButton>
-        </div>
+        <FlatButton>
+          <ContentAdd />
+        </FlatButton>
       }
     />
     <CustomerList url="/api/customers" />
