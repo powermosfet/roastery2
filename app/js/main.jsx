@@ -12,12 +12,16 @@ module.exports = React.createClass({
   handleMenuClick: function() {
     this.state.leftNavOpen = !this.state.leftNavOpen;
   },
+  handleAdd: function() {
+    console.log("Clicked add button");
+  },
   render: function() {
     return (
   <div>
     <AppBar
       title="Customers"
       onTitleTouchTap={this.handleMenuClick}
+      onRightIconButtonTouchTap={this.handleAdd}
       iconElementRight={
         <IconButton>
           <ContentAdd />
