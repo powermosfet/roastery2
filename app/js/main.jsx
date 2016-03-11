@@ -17,7 +17,7 @@ module.exports = React.createClass({
   <div>
     <AppBar
       title="Customers"
-      onLeftIconButtonTouchTap={this.handleMenuClick}
+      onTitleTouchTap={this.handleMenuClick}
       iconElementRight={
         <IconButton>
           <ContentAdd />
