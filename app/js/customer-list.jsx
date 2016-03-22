@@ -1,8 +1,5 @@
 var $ = require('jquery');
 var React = require('react');
-var List = require('material-ui/lib/lists/list');
-var ListItem = require('material-ui/lib/lists/list-item');
-var Avatar = require('material-ui/lib/avatar');
 
 var CustomerList = React.createClass({
   loadCustomers: function() {
@@ -29,18 +26,15 @@ var CustomerList = React.createClass({
     var customerItems = this.state.data.map(function(customer) {
       var firstLetter = customer.name[0] || 'X';
       return (
-        <ListItem
-          key={ customer._id }
-          leftAvatar={<Avatar>{ firstLetter }</Avatar>}
-          >
+        <li key={ customer._id } >
           { customer.name }
-        </ListItem>
+        </li>
       );
     });
     return (
-      <List>
+      <ul>
         { customerItems }
-      </List>
+      </ul>
     );
   }
 });
