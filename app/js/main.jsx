@@ -8,11 +8,9 @@ module.exports = React.createClass({
   },
   render: function() {
     return (
-      <ul>
-        <li>test</li>
-        <li>test</li>
-        <li>test</li>
-      </ul>
+      <div>
+        <CustomerList url="/api/customers" />
+      </div>
     );
   },
 });
