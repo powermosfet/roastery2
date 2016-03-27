@@ -1,6 +1,8 @@
 var $ = require('jquery');
 var React = require('react');
 
+require('../../css/modules/customer-list.scss');
+
 var CustomerList = React.createClass({
   loadCustomers: function() {
     $.ajax({
@@ -32,7 +34,7 @@ var CustomerList = React.createClass({
       );
     });
     return (
-      <ul>
+      <ul className="customer-list-list" >
         { customerItems }
       </ul>
     );

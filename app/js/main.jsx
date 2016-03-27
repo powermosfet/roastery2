@@ -1,5 +1,5 @@
 var React = require('react');
-var CustomerList = require('./customer-list');
+var CustomerList = require('./modules/customer-list');
 
 
 module.exports = React.createClass({
