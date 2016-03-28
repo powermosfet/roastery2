@@ -1,3 +1,6 @@
+@import '../config/colors';
+
 .customer-list-list {
-		background: cyan;
+		color: $color-primary;
+		border: 1px solid $color-dark;
 }
