@@ -10,5 +10,15 @@
 	background: $color-background;
 }
 
+.content {
+	display: flex;
+	justify-content: center;
+}
+
 .page {
+	background: $color-secondary;
+	width: 80%;
+	max-width: 90rem;
+	display: flex;
+	flex-direction: column;
 }

@@ -1,6 +1,9 @@
 @import '../config/colors';
 
-.fafafa {
-		color: $color-primary;
-		border: 1px solid $color-dark;
+.nav-bar-list {
+	color: $color-primary;
+	background: $color-dark;
+	display: flex;
+	justify-content: space-around;
+	padding: .5rem 0;
 }
