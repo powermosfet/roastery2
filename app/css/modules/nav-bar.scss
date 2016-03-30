@@ -1,7 +1,8 @@
 @import '../config/colors';
 
 .nav-bar-list {
-	color: $color-primary;
+	color: $color-background;
+	font-weight: bold;
 	background: $color-dark;
 	display: flex;
 	justify-content: space-around;
