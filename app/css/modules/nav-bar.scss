@@ -6,4 +6,9 @@
 	display: flex;
 	justify-content: space-around;
 	padding: .5rem 0;
+	list-style: none;
+}
+
+.nav-bar-item-link {
+	text-decoration: none;
 }
