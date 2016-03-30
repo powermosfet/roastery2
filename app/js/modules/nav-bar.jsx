@@ -9,13 +9,15 @@ var NavBar = React.createClass({
   },
   render: function() {
     return (
-      <ul className="nav-bar-list" >
-        <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Asdf</a></li>
-        <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Ghjk</a></li>
-        <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Fghj</a></li>
-        <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Erty</a></li>
-        <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Qwer</a></li>
-      </ul>
+      <nav className="nav-bar-nav">
+        <ul className="nav-bar-list" >
+          <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Asdf</a></li>
+          <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Ghjk</a></li>
+          <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Fghj</a></li>
+          <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Erty</a></li>
+          <li className="nav-bar-item"><a className="nav-bar-item-link" href="#">Qwer</a></li>
+        </ul>
+      </nav>
     );
   }
 });
